@@ -37,6 +37,7 @@ export default class AccountsClient {
 	public async logout(): Promise<any> {
 		const response = await this.fetch(['logout'],{})
 		this.tokenStorage.removeTokens();
+		this.userStorage.clearUser();
 		return response;
 	}
 

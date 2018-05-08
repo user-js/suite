@@ -311,7 +311,7 @@ export default class AccountsPassword implements AuthenticationService {
       throw new Error('User invalid');
     }
 
-    return this.db.createUser(proposedUserObject);
+    return this.server.createUser(proposedUserObject);
   }
 
   private async hashAndBcryptPassword(password: PasswordType): Promise<string> {

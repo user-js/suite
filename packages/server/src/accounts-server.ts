@@ -385,6 +385,11 @@ export class AccountsServer {
     return session;
   }
 
+  public createUser(user: any): any{
+    const newUser = this.config.onCreateUser ? this.config.onCreateUser(user) : user
+    return this.db.createUser(newUser)
+  }
+
   /**
    * @description Change the profile for a user.
    * @param {string} userId - User id.
